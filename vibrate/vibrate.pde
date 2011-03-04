@@ -35,7 +35,7 @@ void draw() {
 void mousePressed() { 
   println("hola");  
  
-  myRemoteLocation = new NetAddress("192.168.43.1", 12001); 
+  myRemoteLocation = new NetAddress("192.168.1.35", 12001); 
   
     /* create a new osc message object */
   OscMessage myMessage = new OscMessage("/oscdroid/vibrate"); 

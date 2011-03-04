@@ -1,7 +1,7 @@
 /* 
- * OSCdroid multitouch example 
+ * OSCdroid text example 
  * Victor Diaz 
- * 
+ * http://victordiaz.github.com 
  */ 
 
 import oscP5.*; 
@@ -11,6 +11,7 @@ OscP5 oscP5;
 
 String textmsg = ""; 
 
+int port = 12002; 
 
 void setup() {
   size(500,500); 
@@ -18,7 +19,7 @@ void setup() {
   smooth(); 
 
   //start osc sever 
-  oscP5 = new OscP5(this, 12002); 
+  oscP5 = new OscP5(this, port); 
   
 }
 

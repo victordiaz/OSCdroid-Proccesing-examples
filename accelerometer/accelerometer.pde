@@ -9,6 +9,7 @@ import netP5.*;
 
 OscP5 oscP5; 
 
+//accelerometer values 
 float x = 0; 
 float y = 0; 
 float z = 0; 
@@ -18,7 +19,7 @@ float cX = 0;
 float cY = 0; 
 float cZ = 0; 
 
-
+int port = 12002; 
 
 void setup() {
   size(500,500); 
@@ -29,7 +30,7 @@ void setup() {
   y = height / 2; 
   
   //start osc sever 
-  oscP5 = new OscP5(this, 12002); 
+  oscP5 = new OscP5(this, port); 
   
 }
 
@@ -48,20 +49,13 @@ void draw() {
 
 
 void oscEvent(OscMessage theOscMessage) { 
-  /* check if theOscMessage has the address pattern we are looking for. */ 
-  
-  println("timetag: "+theOscMessage.timetag());
-  print(" addrpattern: "+theOscMessage.addrPattern());
-  println(" typetag: "+theOscMessage.typetag()); 
-  
-  if(theOscMessage.checkAddrPattern("/oscdroid/accel") == true) { 
+
+  if(theOscMessage.checkAddrPattern("/oscdroid/accelerometer") == true) { 
 
       x = theOscMessage.get(0).floatValue(); 
       y = theOscMessage.get(1).floatValue(); 
       z = theOscMessage.get(2).floatValue(); 
       
       println(" values: " + x + ", " + y + ", " + z); 
-    
-      return; 
   } 
 }
