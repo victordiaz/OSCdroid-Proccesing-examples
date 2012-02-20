@@ -24,8 +24,8 @@ void setup() {
     /* create a new osc message object */
   OscMessage myMessage = new OscMessage("/oscdroid/smssend"); 
   
-  myMessage.add("645865008"); /* add an int to the osc message */ 
-  myMessage.add("hola"); /* add a float to the osc message */ 
+  myMessage.add("write here your phone number"); /* add an int to the osc message */ 
+  myMessage.add("write here your message"); /* add a float to the osc message */ 
   
    /* send the message */
   oscP5.send(myMessage, myRemoteLocation); 
